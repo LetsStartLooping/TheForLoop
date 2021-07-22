@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+# How to assign static IP address to Raspberry Pi?
 
-You can use the [editor on GitHub](https://github.com/LetsStartLooping/TheForLoop/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Open the terminal and type following command. This will open the file that contains configuration information for *dhcpd*
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```shell
+sudo nano /etc/dhcpcd.conf
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Scroll down to the very end of the file and type following for setting up static IP address for ethernet port
 
-### Jekyll Themes
+```bash
+interface eth0
+static ip_address=192.168.1.211/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LetsStartLooping/TheForLoop/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Similarly type following for setting up static IP for Wi-fi
 
-### Support or Contact
+```bash
+interface wlan0
+static ip_address=192.168.1.210/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Only difference here is first line starting with word `interface`
+
+`eth0`: Used for LAN
+
+`wlan0`: Used for Wireless Network
+
+Custom UP address should be added on 2nd line just before `/24`
