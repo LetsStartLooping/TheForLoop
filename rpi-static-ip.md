@@ -1,3 +1,8 @@
+layout: page
+title: "How to assign static IP address to Raspberry Pi"
+permalink: https://letsstartlooping.github.io/TheForLoop/rpi-static-ip.md
+
+
 # How to assign static IP address to Raspberry Pi?
 
 
