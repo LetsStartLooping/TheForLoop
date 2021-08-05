@@ -1,3 +1,3 @@
 # The For Loop
 
-<a href="rpi-static-ip.md">How to assign static IP address to Raspberry Pi?</a>
+<a href="RPi--Static-IP.html">How to assign static IP address to Raspberry Pi?</a>
